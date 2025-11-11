@@ -2,25 +2,24 @@
 # @sid 20251174010003
 # @aid V8.1
 
-print("1-Escrever uma frase em um arquivo")
-print("2-Ler e imprimir o conteudo do arquivo")
-entrada=int(input("O que voce quer fazer?"))
-
-geral ="arquivoprimeiro"
-
-def escreva_arquivo(geral):
+def escreva_arquivo(arquivoprimeiro):
     arquivo=open("arquivoprimeiro","w")
     arquivo.write(input("Escreva:"))
     arquivo.close()
 
-def ler_arquivo(geral):
-    arquivo2= open("arquivoprimeiro","r")
-    leitura= arquivo2.read()
-    arquivo2.close()
-    print(leitura)
+def ler_arquivo(arquivoprimeiro):
+    with open("arquivoprimeiro", "r") as f:
+        frases = f.readlines()
+        for frase in frases:
+            print(frase.strip)
+
+print("1-Escrever uma frase em um arquivo")
+print("2-Ler e imprimir o conteudo do arquivo")
+entrada=input("O que voce quer fazer?")
+
+arquivoprimeiro = "arquivoprimeiro"
 
 if entrada != "2":
-    escreva_arquivo(geral)
+    escreva_arquivo(arquivoprimeiro)
 else:
-    ler_arquivo(geral)
-
+    ler_arquivo(arquivoprimeiro)
